@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es" style="">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Andina Facility - Panel de Control</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#dfe8ff",
+                        "on-secondary-container": "#636264",
+                        "on-surface-variant": "#414753",
+                        "primary-fixed": "#d7e3ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#474649",
+                        "tertiary": "#4e5052",
+                        "surface": "#faf8fe",
+                        "surface-silk": "#F5F5F7",
+                        "tertiary-fixed-dim": "#c6c6c8",
+                        "surface-variant": "#e3e2e7",
+                        "recreation-purple": "#AF52DE",
+                        "on-background": "#1a1b1f",
+                        "surface-container": "#eeedf3",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e9e7ed",
+                        "on-primary": "#ffffff",
+                        "background": "#faf8fe",
+                        "primary-fixed-dim": "#aac7ff",
+                        "on-tertiary-fixed": "#1a1c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "text-primary": "#1D1D1F",
+                        "surface-container-low": "#f4f3f8",
+                        "surface-bright": "#faf8fe",
+                        "on-tertiary-fixed-variant": "#454749",
+                        "primary-container": "#0066cc",
+                        "surface-tint": "#005cba",
+                        "secondary": "#5f5e60",
+                        "inverse-on-surface": "#f1f0f5",
+                        "text-secondary": "#86868B",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "surface-dim": "#dad9df",
+                        "risk-red": "#FF3B30",
+                        "inverse-surface": "#2f3034",
+                        "surface-container-highest": "#e3e2e7",
+                        "tertiary-fixed": "#e2e2e4",
+                        "outline": "#727784",
+                        "inverse-primary": "#aac7ff",
+                        "secondary-fixed": "#e4e2e4",
+                        "primary": "#004e9f",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1b1f",
+                        "on-primary-fixed": "#001b3e",
+                        "hospitality-blue": "#0066CC",
+                        "tertiary-container": "#67686a",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "outline-variant": "#c1c6d5",
+                        "maintenance-green": "#28CD41",
+                        "on-primary-fixed-variant": "#00458e",
+                        "secondary-container": "#e2dfe1",
+                        "on-tertiary-container": "#e8e8ea",
+                        "hr-orange": "#FF9F0A"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "80px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "margin-tablet": "40px",
+                        "stack-xl": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.25", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes meshGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes slideUpFade {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            background-color: #F5F5F7;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(0, 102, 204, 0.04) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(175, 82, 222, 0.04) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(40, 205, 65, 0.04) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(255, 159, 10, 0.04) 0px, transparent 50%);
+            background-size: 200% 200%;
+            animation: meshGradient 15s ease infinite;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-stagger {
+            opacity: 0;
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .card-container>*:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card-container>*:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card-container>*:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .card-container>*:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .card-container>*:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .card-container>*:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            ::before,
+            ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .animate-stagger {
+                opacity: 1;
+                transform: none;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="min-h-screen text-text-primary overflow-x-hidden selection:bg-hospitality-blue selection:text-white flex flex-col font-body-md"
+    data-mode="connect">
+    <!-- TopNavBar -->
+    <nav
+        class="bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl fixed top-0 w-full border-b border-white/20 dark:border-white/10 shadow-sm z-50">
+        <div class="flex justify-between items-center w-full px-margin-tablet py-4 max-w-container-max mx-auto">
+            <div class="flex items-center gap-stack-lg">
+                <span
+                    class="font-headline-md text-headline-md font-bold text-text-primary dark:text-surface-container-lowest">Andina
+                    Facility</span>
+                <div class="hidden md:flex gap-stack-md">
+                    <a class="text-hospitality-blue dark:text-primary-fixed-dim font-bold border-b-2 border-hospitality-blue font-label-md text-label-md py-1"
+                        href="#">Dashboards</a>
+                    <a class="text-text-secondary dark:text-on-surface-variant hover:text-hospitality-blue transition-colors duration-300 font-label-md text-label-md py-1 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-hospitality-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                        href="https://dondstay.aiakosapp.com" target="_blank" rel="noopener noreferrer">DondStay - Hoteleria</a>
+                    <a class="text-text-secondary dark:text-on-surface-variant hover:text-hospitality-blue transition-colors duration-300 font-label-md text-label-md py-1 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-hospitality-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                        href="https://clientes.cmmshere.com" target="_blank" rel="noopener noreferrer">CmmsHere - Mantención</a>
+                    <a class="text-text-secondary dark:text-on-surface-variant hover:text-hospitality-blue transition-colors duration-300 font-label-md text-label-md py-1 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-hospitality-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                        href="#" target="_blank" rel="noopener noreferrer">ImpekeAPP - Aseo</a>
+                    <a class="text-text-secondary dark:text-on-surface-variant hover:text-hospitality-blue transition-colors duration-300 font-label-md text-label-md py-1 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-hospitality-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                        href="#">Acerca de</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-stack-md">
+                <span class="text-text-secondary font-label-md text-label-md mr-4">Bienvenido(a)</span>
+                <button
+                    class="text-primary dark:text-primary-fixed hover:opacity-80 hover:text-hospitality-blue transition-all scale-95 hover:scale-100 duration-200">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button
+                    class="text-primary dark:text-primary-fixed hover:opacity-80 hover:text-hospitality-blue transition-all scale-95 hover:scale-100 duration-200">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Canvas -->
+    <main class="flex-grow pt-[100px] pb-stack-xl px-margin-tablet max-w-container-max mx-auto w-full">
+        <!-- Header Section -->
+        <header class="mb-stack-xl text-center md:text-left mt-stack-lg">
+            <h1 class="font-display-lg text-display-lg text-text-primary mb-stack-sm tracking-tight">Panel de Control -
+                Andina Facility</h1>
+            <p class="font-body-lg text-body-lg text-text-secondary">Seleccione un área para ver los indicadores en
+                tiempo real.</p>
+        </header>
+        <!-- Bento Grid Layout for Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter card-container">
+            <!-- Card 1: Hotelería -->
+            <a class="glass-card rounded-xl p-stack-lg flex flex-col justify-between group h-64 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08),0_0_30px_rgba(0,102,204,0.15)] animate-stagger"
+                href="https://datastudio.google.com/reporting/f0f7c1f4-3936-40e9-bf1e-1f511986509e" target="_blank" rel="noopener noreferrer">
+                <div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-hospitality-blue/10 flex items-center justify-center mb-stack-md transition-colors duration-300 group-hover:bg-hospitality-blue/20">
+                        <span
+                            class="material-symbols-outlined text-hospitality-blue text-2xl transition-transform duration-300 group-hover:scale-110"
+                            style='font-variation-settings: "FILL" 1;'>hotel</span>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Hotelería</h2>
+                    <p class="font-body-md text-body-md text-text-secondary">Ocupación, Censos y eventos y otros.</p>
+                </div>
+                <div class="flex items-center text-hospitality-blue font-label-md text-label-md mt-auto">
+                    Ver Dashboard <span
+                        class="material-symbols-outlined ml-1 text-sm transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
+                </div>
+            </a>
+            <!-- Card 2: Aseo -->
+            <a class="glass-card rounded-xl p-stack-lg flex flex-col justify-between group h-64 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08),0_0_30px_rgba(0,102,204,0.15)] animate-stagger"
+                href="#">
+                <div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-hospitality-blue/10 flex items-center justify-center mb-stack-md transition-colors duration-300 group-hover:bg-hospitality-blue/20">
+                        <span
+                            class="material-symbols-outlined text-hospitality-blue text-2xl transition-transform duration-300 group-hover:scale-110"
+                            style="font-variation-settings: 'FILL' 1;">cleaning_services</span>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Aseo</h2>
+                    <p class="font-body-md text-body-md text-text-secondary">Tracking puntos de aseo y cumplimientos.
+                    </p>
+                </div>
+                <div class="flex items-center text-hospitality-blue font-label-md text-label-md mt-auto">
+                    Ver Dashboard <span
+                        class="material-symbols-outlined ml-1 text-sm transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
+                </div>
+            </a>
+            <!-- Card 3: Mantención -->
+            <a class="glass-card rounded-xl p-stack-lg flex flex-col justify-between group h-64 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08),0_0_30px_rgba(40,205,65,0.15)] animate-stagger"
+                href="#">
+                <div class="">
+                    <div
+                        class="w-12 h-12 rounded-full bg-maintenance-green/10 flex items-center justify-center mb-stack-md transition-colors duration-300 group-hover:bg-maintenance-green/20">
+                        <span
+                            class="material-symbols-outlined text-maintenance-green text-2xl transition-transform duration-300 group-hover:scale-110"
+                            style='font-variation-settings: "FILL" 1;'>settings</span>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Mantención</h2>
+                    <p class="font-body-md text-body-md text-text-secondary">OTs, Plan Preventivo, Mantención
+                        Correctiva, etc</p>
+                </div>
+                <div class="flex items-center text-maintenance-green font-label-md text-label-md mt-auto">
+                    Ver Dashboard <span
+                        class="material-symbols-outlined ml-1 text-sm transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
+                </div>
+            </a>
+            <!-- Card 4: Recreación -->
+            <a class="glass-card rounded-xl p-stack-lg flex flex-col justify-between group h-64 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08),0_0_30px_rgba(175,82,222,0.15)] animate-stagger"
+                href="#">
+                <div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-recreation-purple/10 flex items-center justify-center mb-stack-md transition-colors duration-300 group-hover:bg-recreation-purple/20">
+                        <span
+                            class="material-symbols-outlined text-recreation-purple text-2xl transition-transform duration-300 group-hover:scale-110"
+                            style='font-variation-settings: "FILL" 1;'>sports</span>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Recreación</h2>
+                    <p class="font-body-md text-body-md text-text-secondary">Actividades, asistencia y feedback.</p>
+                </div>
+                <div class="flex items-center text-recreation-purple font-label-md text-label-md mt-auto">
+                    Ver Dashboard <span
+                        class="material-symbols-outlined ml-1 text-sm transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
+                </div>
+            </a>
+            <!-- Card 5: RRHH -->
+            <a class="glass-card rounded-xl p-stack-lg flex flex-col justify-between group h-64 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08),0_0_30px_rgba(255,159,10,0.15)] animate-stagger"
+                href="https://datastudio.google.com/reporting/0bc2ee4c-8710-45cb-9c05-8fed7fcb9e9c" target="_blank" rel="noopener noreferrer">
+                <div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-hr-orange/10 flex items-center justify-center mb-stack-md transition-colors duration-300 group-hover:bg-hr-orange/20">
+                        <span
+                            class="material-symbols-outlined text-hr-orange text-2xl transition-transform duration-300 group-hover:scale-110"
+                            style='font-variation-settings: "FILL" 1;'>groups</span>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">RRHH</h2>
+                    <p class="font-body-md text-body-md text-text-secondary">Asistencia, turnos y clima laboral.</p>
+                </div>
+                <div class="flex items-center text-hr-orange font-label-md text-label-md mt-auto">
+                    Ver Dashboard <span
+                        class="material-symbols-outlined ml-1 text-sm transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
+                </div>
+            </a>
+            <!-- Card 6: Prevención -->
+            <a class="glass-card rounded-xl p-stack-lg flex flex-col justify-between group h-64 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08),0_0_30px_rgba(255,59,48,0.15)] animate-stagger"
+                href="#">
+                <div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-risk-red/10 flex items-center justify-center mb-stack-md transition-colors duration-300 group-hover:bg-risk-red/20">
+                        <span
+                            class="material-symbols-outlined text-risk-red text-2xl transition-transform duration-300 group-hover:scale-110"
+                            style='font-variation-settings: "FILL" 1;'>security</span>
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Prevención</h2>
+                    <p class="font-body-md text-body-md text-text-secondary">Incidentes, inspecciones y cumplimiento.
+                    </p>
+                </div>
+                <div class="flex items-center text-risk-red font-label-md text-label-md mt-auto">
+                    Ver Dashboard <span
+                        class="material-symbols-outlined ml-1 text-sm transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
+                </div>
+            </a>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-transparent w-full py-stack-lg border-t border-surface-variant/30 mt-auto">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center px-margin-tablet max-w-container-max mx-auto text-text-secondary dark:text-on-surface-variant">
+            <div class="mb-stack-sm md:mb-0">
+                <span class="font-body-md text-body-md opacity-70 hover:opacity-100 transition-opacity">© 2026 AiakosApp
+                    SpA. Todos los derechos reservados.</span>
+            </div>
+            <div class="flex gap-stack-md">
+                <a class="font-label-sm text-label-sm hover:text-hospitality-blue transition-colors opacity-70 hover:opacity-100"
+                    href="#">Política de Privacidad</a>
+                <a class="font-label-sm text-label-sm hover:text-hospitality-blue transition-colors opacity-70 hover:opacity-100"
+                    href="#">Términos de Uso</a>
+                <a class="font-label-sm text-label-sm hover:text-hospitality-blue transition-colors opacity-70 hover:opacity-100"
+                    href="#">Centro de Ayuda</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
