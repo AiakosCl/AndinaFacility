@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="light" lang="es" style="">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sin Conexión - Andina Facility</title>
+    <link rel="icon" type="image/png" href="static/img/icono.webp" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0066cc" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Andina Facility" />
+    <link rel="apple-touch-icon" href="static/img/icono.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #F5F5F7;
+            background-image: 
+                linear-gradient(rgba(245, 245, 247, 0.15), rgba(245, 245, 247, 0.25)), 
+                url('static/img/fondo.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-[#1D1D1F] overflow-x-hidden selection:bg-[#0066CC] selection:text-white flex flex-col font-['Inter'] items-center justify-center">
+    
+    <div class="glass-card rounded-2xl p-10 flex flex-col items-center justify-center text-center max-w-md w-full mx-5">
+        <div class="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-red-500 text-4xl" style="font-variation-settings: 'FILL' 1;">wifi_off</span>
+        </div>
+        <h1 class="text-3xl font-bold mb-4 tracking-tight">Estás desconectado</h1>
+        <p class="text-gray-600 mb-8 text-lg">Parece que no tienes conexión a internet en este momento. Se requiere conexión para acceder a esta herramienta.</p>
+        
+        <a href="./index.html" class="bg-[#0066CC] hover:bg-[#005cba] text-white font-medium py-3 px-6 rounded-lg transition-colors w-full flex justify-center items-center gap-2">
+            <span class="material-symbols-outlined">home</span>
+            Volver al Panel de Control
+        </a>
+    </div>
+
+</body>
+</html>

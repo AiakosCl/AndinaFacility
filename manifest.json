@@ -1,0 +1,17 @@
+{
+  "name": "Andina Facility",
+  "short_name": "Andina",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F5F5F7",
+  "theme_color": "#0066cc",
+  "description": "Panel de Control Andina Facility",
+  "icons": [
+    {
+      "src": "static/img/icono.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
