@@ -1,4 +1,4 @@
-const CACHE_NAME = 'andina-facility-v2';
+const CACHE_NAME = 'andina-facility-v3';
 const urlsToCache = [
   './',
   './index.html',
